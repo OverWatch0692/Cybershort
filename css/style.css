@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: black;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.book-ad {
+  position: relative;
+  width: 400px;
+  height: 600px;
+  border: 5px solid #00ff00;
+  box-shadow: 0 0 20px #00ff00;
+  overflow: hidden;
+}
+
+.book-cover {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background to enhance text readability */
+}
+
+/* Full-page scrolling binary background */
+.binary-text-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: black;
+  z-index: 0;
+}
+
+.binary-text {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  color: rgba(0, 255, 0, 0.3); /* More transparent green for binary text */
+  font-family: monospace;
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: center;
+  animation: scrollText 20s linear infinite;
+}
+
+.binary-text:nth-child(2) {
+  top: 100%; /* Position second text below the first */
+}
+
+@keyframes scrollText {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-100%);
+  }
+}
+
+/* Hacker image with glow effect */
+.hacker {
+  position: absolute;
+  top: 320px; /* Positioned higher on the page */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150px;
+  z-index: 2; /* Above the binary text */
+  filter: drop-shadow(0 0 8px #00ff00); /* Green glow effect */
+}
+
+/* Bouncing security icons */
+.icons {
+  position: absolute;
+  top: 120px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 160px;
+  animation: bounce 2s infinite alternate;
+  z-index: 2; /* Above the binary text */
+}
+
+.title {
+  font-size: 24px;
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  z-index: 2; /* Above the binary text */
+  text-shadow: 0 0 5px #00ffff; /* Cyan glow for better visibility */
+}
+
+.title span {
+  color: red;
+  font-weight: bold;
+  font-size: 30px;
+  text-shadow: 0 0 8px red; /* Red glow */
+}
+
+.subtitle {
+  position: absolute;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 14px;
+  background: rgba(255, 0, 0, 0.7);
+  padding: 5px 10px;
+  border-radius: 5px;
+  z-index: 2; /* Above the binary text */
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.5); /* Subtle red glow */
+}
+
+.author {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-weight: bold;
+  font-size: 16px;
+  background: rgba(0, 255, 0, 0.7);
+  padding: 5px 10px;
+  color: black;
+  text-shadow: 0 0 10px #00ff00;
+  z-index: 2; /* Above the binary text */
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateX(-50%) translateY(30px); }
+  to { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+@keyframes bounce {
+  from { transform: translateX(-50%) translateY(0); }
+  to { transform: translateX(-50%) translateY(10px); }
+}
+
+.title span:hover {
+  color: yellow;
+  text-shadow: 0 0 10px yellow;
+  transform: scale(1.1);
+  transition: 0.3s ease-in-out;
+}
